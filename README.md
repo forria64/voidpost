@@ -1,10 +1,10 @@
-# Voidpost
+# 🕳️ Voidpost
 
 **Anonymous document sharing on the Veilid network.**
 
 Voidpost is a decentralized, zero-identity document sharing system built on
 [Veilid](https://veilid.com) — the peer-to-peer framework from the
-[Cult of the Dead Cow](https://en.wikipedia.org/wiki/Cult_of_the_Dead_Cow),
+[Cult of the Dead Cow](https://cultdeadcow.com/),
 the same beautiful maniacs who've been rattling the surveillance industry's
 cage since 1984. No accounts. No servers. No tokens. No metadata breadcrumbs
 for some three-letter agency to vacuum up at 3 AM. You publish a document,
@@ -13,7 +13,7 @@ The network handles the rest. You were never here.
 
 ---
 
-## What It Does
+## ⚡ What It Does
 
 You drop a file into Voidpost. The system tears it apart — encrypted, chunked,
 and hurled across the Veilid DHT, a distributed hash table smeared over
@@ -27,7 +27,7 @@ information was always supposed to work before the landlords showed up.
 
 ---
 
-## Architecture
+## 🏗️ Architecture
 
 The architecture is built on an asymmetry that most projects get catastrophically
 wrong: **publishing is a commitment** — you're staking network resources to keep
@@ -35,7 +35,7 @@ data alive — while **reading is a hit-and-run** — grab the goods and vanish.
 Voidpost doesn't pretend these are the same operation. It gives each one the
 tool it deserves.
 
-### Three Clients, One Network
+### 🔌 Three Clients, One Network
 
 ```mermaid
 graph TD
@@ -93,7 +93,7 @@ graph TD
 | **Web Reader** (WASM) | ❌ | ✅ | ❌ | No — just click a link |
 | **CLI** | ✅ | ✅ | ✅ Daemon mode | Yes |
 
-### Data Flow — Publish
+### 📤 Data Flow — Publish
 
 ```mermaid
 flowchart LR
@@ -111,7 +111,7 @@ flowchart LR
   linkStyle default stroke:#888,stroke-width:2px
 ```
 
-### Data Flow — Retrieve
+### 📥 Data Flow — Retrieve
 
 ```mermaid
 flowchart LR
@@ -138,25 +138,25 @@ being logged by infrastructure you don't control.
 
 ---
 
-## Tech Stack
+## 🧰 Tech Stack
 
-Every dependency here earned its seat. No hype-driven decisions or framework-of-the-week gambling with production stability.
+Every dependency here earned its seat. No hype-driven decisions or framework-of-the-week gambling with production stability. 🎰🚫
 
 | Layer | Choice |
 |-------|--------|
-| P2P Network | [Veilid](https://veilid.com) (v0.5.2) — DHT, private routes, safety routes |
-| Desktop Framework | [Tauri v2](https://v2.tauri.app) — Rust backend, system webview, ~5MB binary |
-| UI Framework | Vue 3 + Composition API + TypeScript (strict) |
-| State Management | Pinia |
-| Styling | Tailwind CSS |
-| Build Tool | Vite |
-| WASM Bindings | veilid-wasm (official) |
-| CLI Framework | clap (Rust) |
-| Monorepo | pnpm workspaces (TS) + Cargo workspace (Rust) |
+| 🌐 P2P Network | [Veilid](https://veilid.com) (v0.5.2) — DHT, private routes, safety routes |
+| 🖥️ Desktop Framework | [Tauri v2](https://v2.tauri.app) — Rust backend, system webview, ~5MB binary |
+| 🎨 UI Framework | Vue 3 + Composition API + TypeScript (strict) |
+| 🧠 State Management | Pinia |
+| 💅 Styling | Tailwind CSS |
+| ⚡ Build Tool | Vite |
+| 🕸️ WASM Bindings | veilid-wasm (official) |
+| ⌨️ CLI Framework | clap (Rust) |
+| 📦 Monorepo | pnpm workspaces (TS) + Cargo workspace (Rust) |
 
 ---
 
-## Monorepo Structure
+## 🗂️ Monorepo Structure
 
 One repo. Clean lines. Every package knows its job and stays in its lane —
 the kind of separation of concerns that would make a grown architect weep
@@ -176,7 +176,7 @@ voidpost/
 └── README.md
 ```
 
-### Package Dependencies
+### 🔗 Package Dependencies
 
 ```mermaid
 ---
@@ -211,29 +211,29 @@ graph TD
 
 ---
 
-## Platform Support
+## 🖥️ Platform Support
 
-If it has a screen and a network stack, we'll get to it eventually.
+If it has a screen and a network stack, we'll get to it eventually. 🌍
 Desktop is the beachhead. The rest follows.
 
-### Desktop (Tauri v2)
-- Linux (.deb, .AppImage, .rpm)
-- macOS (.dmg — signed + notarized)
-- Windows (.msi, .exe — signed)
-- Android (.apk — future)
-- iOS (future)
+### 🖥️ Desktop (Tauri v2)
+- 🐧 Linux (.deb, .AppImage, .rpm)
+- 🍎 macOS (.dmg — signed + notarized)
+- 🪟 Windows (.msi, .exe — signed)
+- 🤖 Android (.apk — future)
+- 📱 iOS (future)
 
-### Web Reader
-- Any modern browser with WASM support
+### 🌐 Web Reader
+- 🏄 Any modern browser with WASM support
 
-### CLI
-- Linux, macOS, Windows (prebuilt binaries + `cargo install`)
+### ⌨️ CLI
+- 🛠️ Linux, macOS, Windows (prebuilt binaries + `cargo install`)
 
 ---
 
-## Privacy Model
+## 🛡️ Privacy Model
 
-Privacy is not a feature in Voidpost. It is the architecture. Strip it out
+🔐 Privacy is not a feature in Voidpost. It is the architecture. Strip it out
 and there is nothing left — no app, no protocol, no reason to exist. Every
 design decision flows downstream from one principle: **the system must not
 be capable of betraying its users, even under duress.**
@@ -266,30 +266,30 @@ sequenceDiagram
   Note over P,R: ⚡ Publisher and Reader never see each other.
 ```
 
-- **No accounts, no identity, no tokens.** There is nothing to link, nothing
+- 👻 **No accounts, no identity, no tokens.** There is nothing to link, nothing
   to subpoena, nothing to hand over in a conference room with bad lighting
   and worse intentions.
-- **Private Routes** — The publisher's node identity is severed from DHT writes.
+- 🕳️ **Private Routes** — The publisher's node identity is severed from DHT writes.
   Your operations bounce through multiple relay hops before they touch the
   hash table. Your IP never shares a zip code with your data.
-- **Safety Routes** — The reader gets the same treatment in reverse.
+- 🛤️ **Safety Routes** — The reader gets the same treatment in reverse.
   Pull a document off the DHT and your node ID is nowhere near the request.
-- **URL fragments** — The share link's payload lives after the `#`. Browsers
+- 🔗 **URL fragments** — The share link's payload lives after the `#`. Browsers
   do not send fragments to servers. Period. Not in headers, not in referrers,
   not in any log that any sysadmin on earth will ever read.
-- **Zero telemetry** — No analytics. No phone-home. No clever "anonymous
+- 🚫 **Zero telemetry** — No analytics. No phone-home. No clever "anonymous
   usage metrics" that always turn out to be neither anonymous nor metric.
   The only packets leaving your machine are Veilid protocol.
-- **Encrypted at rest** — Documents are ciphertext before they ever touch the
+- 🔒 **Encrypted at rest** — Documents are ciphertext before they ever touch the
   DHT. Node operators, relay operators, network observers — they all see the
-  same thing: noise. Beautiful, uninterpretable, plausibly-deniable noise.
+  same thing: noise. Beautiful, uninterpretable, plausibly-deniable noise. 📡
 
 ---
 
-## Why Veilid?
+## 🐄 Why Veilid?
 
 Because every other option has a fatal flaw and we're tired of pretending
-otherwise.
+otherwise. 🪦
 
 Veilid is a pure infrastructure protocol — no blockchain, no token, no
 financialized incentive structure that turns every participant into a day
@@ -311,4 +311,4 @@ that the most important feature of a privacy tool is not getting shut down.
 
 ---
 
-*"Voidpost. Encrypted at birth. Anonymous by design. Gone when you're done."*
+*"🕳️ Voidpost. 🔐 Encrypted at birth. 👻 Anonymous by design. 💨 Gone when you're done."*
