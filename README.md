@@ -214,12 +214,12 @@ graph TD
 ## 🖥️ Platform Support
 
 If it has a screen and a network stack, we'll get to it eventually. 🌍
-Desktop is the beachhead. The rest follows.
+CLI is the beachhead. The rest follows.
 
 ### 🖥️ Desktop (Tauri v2)
 - 🐧 Linux (.deb, .AppImage, .rpm)
 - 🍎 macOS (.dmg — signed + notarized)
-- 🪟 Windows (.msi, .exe — signed)
+- 🪟 Windows (.msi, .exe — signed )
 - 🤖 Android (.apk — future)
 - 📱 iOS (future)
 
