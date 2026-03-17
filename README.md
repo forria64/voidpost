@@ -8,7 +8,7 @@ peer-to-peer application framework from the [Cult of the Dead Cow](https://cultd
 - **No servers.** Threads are DHT records. No infrastructure to seize or subpoena.
 - **No IP logs.** Veilid's onion routing means there are no direct connections to log.
 - **Anonymous by default.** Optional identity via [Ed25519](https://en.wikipedia.org/wiki/EdDSA#Ed25519) tripcodes.
-- **Ephemeral.** Content persists while people engage with it and expires when they stop.
+- **Ephemeral.** Content persists while people engage with it and expires when they stop. 
 - **Grief-resistant.** Two-layer discovery combines shared beacons with single-owner identity feeds.
 
 ---
